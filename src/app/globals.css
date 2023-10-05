@@ -2,8 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+::-webkit-scrollbar {
+  width: 10px; /* Width of the scrollbar */
+}
+
 /* CSS for dark mode */
 @media (prefers-color-scheme: dark) {
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(
+      255,
+      255,
+      255,
+      0.5
+    ); /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(255, 255, 255, 0.7);
+  }
+
   .bg-mode {
     background-color: #1b1b1b; /* Dark background color */
   }
@@ -64,6 +82,15 @@
 
 /* CSS for light mode */
 @media (prefers-color-scheme: light) {
+  ::-webkit-scrollbar-thumb {
+    background-color: rgb(0, 0, 0, 0.5); /* Color of the scrollbar thumb */
+    border-radius: 6px; /* Rounded corners for the thumb */
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: rgb(0, 0, 0, 0.7);
+  }
+
   .bg-mode {
     background-color: #fff; /* Light background color */
   }
