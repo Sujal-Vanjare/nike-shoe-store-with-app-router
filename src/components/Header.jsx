@@ -9,7 +9,7 @@ import { IoMdHeartEmpty } from "react-icons/io";
 import { BsCart } from "react-icons/bs";
 import { BiMenuAltRight } from "react-icons/bi";
 import { VscChromeClose } from "react-icons/vsc";
-import { fetchDataFromApi } from "@/utils/api";
+import { getCategoriesHeader } from "@/utils/api";
 import { useSelector } from "react-redux";
 
 const Header = () => {
@@ -45,8 +45,9 @@ const Header = () => {
         fetchCategories();
     }, []);
     const fetchCategories = async () => {
-        const { data } = await fetchDataFromApi("/api/categories?populate=*");
+        const { data } = await getCategoriesHeader();
         setCategories(data);
+
     };
 
     return (

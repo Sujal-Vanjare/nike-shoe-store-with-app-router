@@ -23,13 +23,13 @@ const MenuMobile = ({
     categories,
 }) => {
     return (
-        <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t text-black">
+        <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full h-[calc(100vh-50px)] bg-mode bor-top txt-mode">
             {data.map((item) => {
                 return (
                     <React.Fragment key={item.id}>
                         {!!item?.subMenu ? (
                             <li
-                                className="cursor-pointer py-4 px-5 border-b flex flex-col relative"
+                                className="cursor-pointer py-4 px-5 bor-bottom flex flex-col relative"
                                 onClick={() => setShowCatMenu(!showCatMenu)}
                             >
                                 <div className="flex justify-between items-center">
@@ -38,7 +38,7 @@ const MenuMobile = ({
                                 </div>
 
                                 {showCatMenu && (
-                                    <ul className="bg-black/[0.05] -mx-5 mt-4 -mb-4">
+                                    <ul className="subtotal-bg -mx-5 mt-4 -mb-4">
                                         {categories?.map(({ attributes: c, id }) => {
                                             return (
                                                 <Link
@@ -49,7 +49,7 @@ const MenuMobile = ({
                                                         setMobileMenu(false);
                                                     }}
                                                 >
-                                                    <li className="py-4 px-8 border-t flex justify-between">
+                                                    <li className="py-4 px-8 bor-top flex justify-between">
                                                         {c.name}
 
                                                         <span className="opacity-50 text-sm">
@@ -63,7 +63,7 @@ const MenuMobile = ({
                                 )}
                             </li>
                         ) : (
-                            <li className="py-4 px-5 border-b">
+                            <li className="py-4 px-5 bor-bottom">
                                 <Link href={item?.url} onClick={() => setMobileMenu(false)}>
                                     {item.name}
                                 </Link>

@@ -19,6 +19,11 @@ export async function fetchDataFromApi(endpoints) {
   return data;
 }
 
+export async function getCategoriesHeader() {
+  const categories = await fetchDataFromApi("/api/categories?populate=*");
+  return categories;
+}
+
 export const makePaymentRequest = async (endpoint, payload) => {
   const res = await fetch(`${API_URL}${endpoint}`, {
     method: "POST",
