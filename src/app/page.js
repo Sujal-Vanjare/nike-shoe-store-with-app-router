@@ -4,8 +4,9 @@ import Wrapper from "@/components/Wrapper";
 import { fetchDataFromApi } from "@/utils/api";
 
 export const metadata = {
-  title: "Shoe Store | Nike",
-  description: "Nike Shoe Shop",
+  title: "Shoe Store Nike | Home",
+  description:
+    "Discover the latest Nike shoes at our online shoe store. Find a wide selection of stylish and comfortable sneakers for every occasion.",
 };
 
 export async function getData() {

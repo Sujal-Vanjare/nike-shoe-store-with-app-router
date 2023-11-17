@@ -1,6 +1,12 @@
 import Wrapper from "@/components/Wrapper";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Shoe Store Nike | Contact",
+  description:
+    "Get in touch with us at Nike Shoe Store. For inquiries, customer support, or partnership opportunities, use our contact page to connect with our dedicated team.",
+};
+
 export default function Page() {
   return (
     <Wrapper>

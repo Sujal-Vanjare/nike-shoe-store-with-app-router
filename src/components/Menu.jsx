@@ -1,31 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { BsChevronDown } from "react-icons/bs";
+import { fetchDataFromApi, getCategoriesHeader } from "@/utils/api";
 
-const data = [
+const page = [
   { id: 1, name: "Home", url: "/" },
   { id: 2, name: "About", url: "/about" },
   { id: 3, name: "Categories", subMenu: true },
   { id: 4, name: "Contact", url: "/contact" },
 ];
 
-const subMenuData = [
-  { id: 1, name: "Jordan", doc_count: 11 },
-  { id: 2, name: "Sneakers", doc_count: 8 },
-  { id: 3, name: "Running shoes", doc_count: 64 },
-  { id: 4, name: "Football shoes", doc_count: 107 },
-];
+// const subMenuData = [
+//   { id: 1, name: "Jordan", doc_count: 11 },
+//   { id: 2, name: "Sneakers", doc_count: 8 },
+//   { id: 3, name: "Running shoes", doc_count: 64 },
+//   { id: 4, name: "Football shoes", doc_count: 107 },
+// ];
 
-const Menu = ({ showCatMenu, setShowCatMenu, categories }) => {
+const Menu = ({ showCatMenu, setShowCatMenu }) => {
+  const [categories, setCategories] = useState([]);
+
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const { data } = await fetchDataFromApi("/api/categories?populate=*");
+        // console.log("Categories:", data);
+        setCategories(data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+        // Handle error as needed
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   return (
     <ul className="hidden md:flex items-center gap-8 font-medium txt-mode">
-      {data.map((item) => {
+      {page.map((item) => {
         return (
           <React.Fragment key={item.id}>
             {!!item?.subMenu ? (
               <li
                 className="cursor-pointer flex items-center gap-2 relative"
-                onClick={() => setShowCatMenu(true)}
+                onMouseEnter={() => setShowCatMenu(true)}
                 onMouseLeave={() => setShowCatMenu(false)}
               >
                 {item.name}
