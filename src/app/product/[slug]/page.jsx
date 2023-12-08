@@ -45,8 +45,6 @@ export default async function Page({ params }) {
     })
     .join("");
 
-  console.log(markdownDescription);
-
   return (
     <div className="w-full md:py-20">
       <ToastContainer />
