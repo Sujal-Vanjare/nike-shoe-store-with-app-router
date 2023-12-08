@@ -28,6 +28,11 @@ export const makePaymentRequest = async (endpoint, payload) => {
     },
     body: JSON.stringify(payload),
   });
+
+  if (!res.ok) {
+    throw new Error(`HTTP error! Status: ${res.status}`);
+  }
+
   const data = await res.json();
   return data;
 };
