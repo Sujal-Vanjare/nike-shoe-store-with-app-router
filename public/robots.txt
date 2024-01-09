@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://nikeshoestoreapp.vercel.app
+
+# Sitemaps
+Sitemap: https://nikeshoestoreapp.vercel.app/sitemap.xml
