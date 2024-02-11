@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Welcome to Nike Shoe Store Website
 
-## Getting Started
+Welcome to Nike Shoe Store, an e-commerce website where you can buy your favorite shoes and make payments through Stripe.
 
-First, run the development server:
+### Website Link
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+[Visit NikeShoeStore.vercel.app](https://nikeshoestoreapp.vercel.app)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Technologies Used
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+**Frontend:** Next.js 14, React, React Carousel, JavaScript, HTML, Tailwind CSS.  
+**Backend:** Strapi CMS, PostgreSQL, Cloudinary for image hosting, Stripe for payments.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Features
 
-## Learn More
+- Simple and elegant design
+- Fully responsive
+- Statically built pages for super-fast loading times
+- Dark and light theme according to the system theme
+- Top carousel
+- Categories
+- Pagination
+- Full SEO optimization including meta tags, keywords, and structured data
+- OpenGraph integration for rich social media sharing
+- Sitemap and robots.txt configuration for better search engine crawling
+- Add to cart function
+- Fully functional payment method
+- Add or remove products or change shoe size availability through CMS
+- Payment success and failure handling
+- Make payments through Stripe
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Feel free to explore the website.

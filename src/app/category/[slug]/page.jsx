@@ -2,6 +2,10 @@ import ProductListPagination from "@/components/ProductListPagination";
 import Wrapper from "@/components/Wrapper";
 import { fetchDataFromApi } from "@/utils/api";
 
+export const metadata = {
+  title: "Nike Shoe Store | Category",
+};
+
 const maxResult = 3;
 
 export async function generateStaticParams() {
