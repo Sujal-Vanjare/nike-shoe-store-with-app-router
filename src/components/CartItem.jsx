@@ -4,19 +4,22 @@ import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { updateCart, removeFromCart } from "@/store/cartSlice";
 import { useDispatch } from "react-redux";
+
+// Functional component for rendering individual cart item
 const CartItem = ({ data }) => {
-  const p = data.attributes;
-  // console.log(data);
+  const p = data.attributes; // Destructuring attributes from data prop
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); // Initializing useDispatch hook
 
+  // Function to update cart item quantity or selected size
   const updateCartItem = (e, key) => {
     let payload = {
       key,
+      // Determine whether the key is 'quantity'; if so, parse the value as an integer, otherwise, use the value as is original form
       val: key === "quantity" ? parseInt(e.target.value) : e.target.value,
       id: data.id,
     };
-    dispatch(updateCart(payload));
+    dispatch(updateCart(payload)); // Dispatching updateCart action with payload
   };
 
   return (
@@ -55,6 +58,7 @@ const CartItem = ({ data }) => {
           {p.subtitle}
         </div>
 
+        {/* Product size and quantity selection */}
         <div className="flex items-center justify-between mt-4">
           <div className="flex items-center gap-2 md:gap-10 bottom-txt-post text-sm md:text-md">
             <div className="flex items-center gap-1">
@@ -74,13 +78,15 @@ const CartItem = ({ data }) => {
               </select>
             </div>
 
+            {/* Quantity selection */}
             <div className="flex items-center gap-1">
               <div className="font-semibold">Quantity:</div>
               <select
                 className="iconcolor bg-mode"
-                onChange={(e) => updateCartItem(e, "quantity")}
-                value={data.quantity}
+                onChange={(e) => updateCartItem(e, "quantity")} // Call updateCartItem function when the selection changes
+                value={data.quantity} // Set the current value of the select element to the quantity of the product
               >
+                {/* Mapping over an array of length 10 to generate options */}
                 {Array.from({ length: 10 }, (_, i) => i + 1).map((q, i) => {
                   return (
                     <option key={i} value={q}>
@@ -91,6 +97,8 @@ const CartItem = ({ data }) => {
               </select>
             </div>
           </div>
+
+          {/* Delete icon for removing item from cart */}
           <RiDeleteBin6Line
             onClick={() => dispatch(removeFromCart({ id: data.id }))}
             className="cursor-pointer bottom-txt-post iconcolor  text-[16px] md:text-[20px]"
