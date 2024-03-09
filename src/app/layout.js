@@ -1,7 +1,6 @@
 "use client";
 import "./globals.css";
 import { Urbanist } from "next/font/google";
-import { Analytics } from "@vercel/analytics/react";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import store from "@/store/store";
@@ -27,7 +26,6 @@ export default function RootLayout({ children }) {
             <Footer />
           </div>
         </Provider>
-        <Analytics />
       </body>
     </html>
   );

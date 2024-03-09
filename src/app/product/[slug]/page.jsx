@@ -56,7 +56,7 @@ export async function generateMetadata({ params }) {
       modifiedTime: p?.updatedAt,
       images: [
         {
-          url: p?.thumbnail.data.attributes.url, // Must be an absolute URL
+          url: p?.images?.thumbnail, // Must be an absolute URL
           width: 592,
           height: 592,
           alt: "thumbnail",
@@ -69,7 +69,7 @@ export async function generateMetadata({ params }) {
       description: `${p?.subtitle} ${p?.name} priced at MRP : ₹ ${p?.price}`,
       images: [
         {
-          url: p?.thumbnail.data.attributes.url, // Must be an absolute URL
+          url: p?.images?.thumbnail, // Must be an absolute URL
           width: 592,
           height: 592,
           alt: "thumbnail",
@@ -114,7 +114,7 @@ export default async function Page({ params }) {
           <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
             {/* left column start */}
             <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-              <ProductDetailsCarousel images={p.image.data} />
+              <ProductDetailsCarousel images={p.images.slide_images} />
             </div>
             {/* left column end */}
 

@@ -26,12 +26,7 @@ const CartItem = ({ data }) => {
     <div className="flex py-5 gap-3 md:gap-5 border-b bor-bottom">
       {/* IMAGE START */}
       <div className="shrink-0 aspect-square w-[50px] md:w-[120px]">
-        <Image
-          src={p.thumbnail.data.attributes.url}
-          alt={p.name}
-          width={120}
-          height={120}
-        />
+        <Image src={p.images.thumbnail} alt={p.name} width={120} height={120} />
       </div>
       {/* IMAGE END */}
 
