@@ -31,7 +31,7 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
   }, []);
 
   return (
-    <ul className="hidden md:flex items-center gap-8 font-medium txt-mode">
+    <ul className="hidden md:flex items-center gap-8 font-medium text-black">
       {/* Map through pages and render menu items */}
       {page.map((item) => {
         return (
@@ -54,7 +54,7 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
 
                 {/* Render sub-menu if showCatMenu is true */}
                 {showCatMenu && (
-                  <ul className="bg-mode absolute top-6 left-0 min-w-[250px] px-1 py-1 txt-mode shadow-lg">
+                  <ul className="bg-white absolute top-6 left-0 min-w-[250px] px-1 py-1 text-black shadow-lg">
                     {/* Map through categories and render category links */}
                     {categories?.map(({ attributes: c, id }) => {
                       return (
@@ -63,7 +63,7 @@ const Menu = ({ showCatMenu, setShowCatMenu }) => {
                           href={`/category/${c.slug}`}
                           onClick={() => setShowCatMenu(false)} // Close sub-menu on click
                         >
-                          <li className="h-12 flex justify-between items-center px-3 hov rounded-md">
+                          <li className="h-12 flex justify-between items-center px-3 hover:bg-[#1b1b1b08] rounded-md">
                             {c.name}
                             <span className="opacity-50 text-sm">
                               {`(${c.products.data.length})`}{" "}

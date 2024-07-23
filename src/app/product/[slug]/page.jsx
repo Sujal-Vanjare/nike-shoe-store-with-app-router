@@ -85,13 +85,6 @@ export default async function Page({ params }) {
 
   const p = product?.data?.[0]?.attributes;
 
-  const markdownDescription = p.description
-    .map((paragraph) => {
-      const text = paragraph.children.map((child) => child.text).join("");
-      return `${text}\n\n`; // Add newlines between paragraphs
-    })
-    .join("");
-
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "NewsArticle",
@@ -114,7 +107,7 @@ export default async function Page({ params }) {
           <div className="flex flex-col lg:flex-row md:px-10 gap-[50px] lg:gap-[100px]">
             {/* left column start */}
             <div className="w-full md:w-auto flex-[1.5] max-w-[500px] lg:max-w-full mx-auto lg:mx-0">
-              <ProductDetailsCarousel images={p.images.slide_images} />
+              <ProductDetailsCarousel images={p.carousel_images} />
             </div>
             {/* left column end */}
 
@@ -131,12 +124,12 @@ export default async function Page({ params }) {
               {/* PRODUCT PRICE */}
               <div className="flex items-center">
                 <p className="mr-2 text-lg font-semibold">
-                  MRP : &#8377;{p.price}
+                  MRP : &#36;{p.price}
                 </p>
                 {p.original_price && (
                   <>
                     <p className="text-base  font-medium line-through">
-                      &#8377;{p.original_price}
+                      &#36;{p.original_price}
                     </p>
                     <p className="ml-auto text-base font-medium text-green-500">
                       {getDiscountedPricePercentage(p.original_price, p.price)}%
@@ -146,17 +139,17 @@ export default async function Page({ params }) {
                 )}
               </div>
 
-              <div className="text-md font-medium bottom-txt-post ">
+              <div className="text-md font-medium text-black/80">
                 incl. of taxes
               </div>
-              <div className="text-md font-medium bottom-txt-post  mb-20">
+              <div className="text-md font-medium text-black/80 mb-20">
                 {`(Also includes all applicable duties)`}
               </div>
 
               <AddToCartFunctionality product={product} />
 
               {/* WHISHLIST BUTTON START */}
-              <button className="w-full py-4 rounded-full bor text-lg font-medium transition-transform active:scale-95 flex items-center justify-center gap-2 hover:opacity-75 mb-10">
+              <button className="w-full py-4 rounded-full border border-black text-lg font-medium transition-transform active:scale-95 flex items-center justify-center gap-2 hover:opacity-75 mb-10">
                 Whishlist
                 <IoMdHeartEmpty size={20} />
               </button>
@@ -165,7 +158,7 @@ export default async function Page({ params }) {
               <div>
                 <div className="text-lg font-bold mb-5">Product Details</div>
                 <div className="markdown text-md mb-5">
-                  <ReactMarkdown>{markdownDescription}</ReactMarkdown>
+                  <ReactMarkdown>{p.description}</ReactMarkdown>
                 </div>
               </div>
             </div>

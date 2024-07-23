@@ -23,47 +23,52 @@ const CartItem = ({ data }) => {
   };
 
   return (
-    <div className="flex py-5 gap-3 md:gap-5 border-b bor-bottom">
+    <div className="flex py-5 gap-3 md:gap-5 border-b border-black/10">
       {/* IMAGE START */}
       <div className="shrink-0 aspect-square w-[50px] md:w-[120px]">
-        <Image src={p.images.thumbnail} alt={p.name} width={120} height={120} />
+        <Image
+          src={p.thumbnail_img_url}
+          alt={p.name}
+          width={120}
+          height={120}
+        />
       </div>
       {/* IMAGE END */}
 
       <div className="w-full flex flex-col">
         <div className="flex flex-col md:flex-row justify-between">
           {/* PRODUCT TITLE */}
-          <div className="text-lg md:text-2xl font-semibold main-txt-post ">
+          <div className="text-lg md:text-2xl font-semibold text-black/90">
             {p.name}
           </div>
 
           {/* PRODUCT SUBTITLE */}
-          <div className="text-sm md:text-md font-medium bottom-txt-post block md:hidden">
+          <div className="text-sm md:text-md font-medium text-black/80 block md:hidden">
             {p.subtitle}
           </div>
 
           {/* PRODUCT PRICE */}
-          <div className="text-sm md:text-md font-bold bottom-txt-post mt-2">
-            MRP : &#8377;{p.price}
+          <div className="text-sm md:text-md font-bold text-black/80 mt-2">
+            MRP : &#36;{p.price}
           </div>
         </div>
 
         {/* PRODUCT SUBTITLE */}
-        <div className="text-md font-medium bottom-txt-post hidden md:block">
+        <div className="text-md font-medium text-black/80 hidden md:block">
           {p.subtitle}
         </div>
 
         {/* Product size and quantity selection */}
         <div className="flex items-center justify-between mt-4">
-          <div className="flex items-center gap-2 md:gap-10 bottom-txt-post text-sm md:text-md">
+          <div className="flex items-center gap-2 md:gap-10 text-black/80 text-sm md:text-md">
             <div className="flex items-center gap-1">
               <div className="font-semibold">Size:</div>
               <select
-                className="iconcolor bg-mode"
+                className="iconcolor bg-white"
                 onChange={(e) => updateCartItem(e, "selectedSize")}
                 value={data.selectedSize}
               >
-                {p.size.data.map((item, i) => {
+                {p.size.map((item, i) => {
                   return (
                     <option key={i} value={item.size} disabled={!item.enabled}>
                       {item.size}
@@ -77,7 +82,7 @@ const CartItem = ({ data }) => {
             <div className="flex items-center gap-1">
               <div className="font-semibold">Quantity:</div>
               <select
-                className="iconcolor bg-mode"
+                className="iconcolor bg-white"
                 onChange={(e) => updateCartItem(e, "quantity")} // Call updateCartItem function when the selection changes
                 value={data.quantity} // Set the current value of the select element to the quantity of the product
               >
@@ -96,7 +101,7 @@ const CartItem = ({ data }) => {
           {/* Delete icon for removing item from cart */}
           <RiDeleteBin6Line
             onClick={() => dispatch(removeFromCart({ id: data.id }))}
-            className="cursor-pointer bottom-txt-post iconcolor  text-[16px] md:text-[20px]"
+            className="cursor-pointer text-black/80 hover:text-black  text-[16px] md:text-[20px]"
           />
         </div>
       </div>

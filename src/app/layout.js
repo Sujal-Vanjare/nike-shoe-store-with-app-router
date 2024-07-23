@@ -13,12 +13,12 @@ const urbanist = Urbanist({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="[scrollbar-gutter:_stable]">
       <meta
         name="google-site-verification"
         content="k3Mu_NRmonR916_W69sQXbvwCkKEQ8VczZ8IAWJpmBc"
       />
-      <body className={`${urbanist.className} bg-mode txt-mode`}>
+      <body className={`${urbanist.className} bg-white text-black`}>
         <Provider store={store}>
           <Header />
           <div className="h-[calc(100vh-80px)] flex flex-col justify-between">

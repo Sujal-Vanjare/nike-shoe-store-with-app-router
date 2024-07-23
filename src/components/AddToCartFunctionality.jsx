@@ -33,7 +33,7 @@ export default function AddToCartFunctionality({ product }) {
         {/* HEADING START */}
         <div className="flex justify-between mb-2">
           <div className="text-md font-semibold">Select Size</div>
-          <div className="text-md font-medium  cursor-pointer  bottom-txt-post">
+          <div className="text-md font-medium  cursor-pointer text-black/80">
             Select Guide
           </div>
         </div>
@@ -41,15 +41,17 @@ export default function AddToCartFunctionality({ product }) {
 
         {/* SIZE START */}
         <div id="sizesGrid" className="grid grid-cols-3 gap-2">
-          {p.size.data.map((item, i) => (
+          {p.size.map((item, i) => (
             <div
               key={i} // Unique key for each size item
               // Conditional class based on item's enabled status
-              className={`  low-bor rounded-md text-center py-3 font-medium ${
+              className={`border border-black/10 rounded-md text-center py-3 font-medium ${
                 item.enabled
-                  ? "hovbor cursor-pointer"
-                  : "cursor-not-allowed hidden-option-bg opacity-50"
-              } ${selectedSize === item.size ? "select-bor" : ""}`}
+                  ? "border-black cursor-pointer"
+                  : "cursor-not-allowed bg-black/10 opacity-50"
+              } ${
+                selectedSize === item.size ? "!border !border-black/60" : ""
+              }`}
               onClick={() => {
                 // Handle click event for size selection
                 if (item.enabled) {
@@ -75,10 +77,10 @@ export default function AddToCartFunctionality({ product }) {
 
       {/* ADD TO CART BUTTON START */}
       <button
-        className="w-full py-4 rounded-full button-bg text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75"
+        className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75"
         onClick={() => {
           // Find the selected size data
-          const selectedSizeData = p.size.data.find(
+          const selectedSizeData = p.size.find(
             (item) => item.size === selectedSize
           );
 

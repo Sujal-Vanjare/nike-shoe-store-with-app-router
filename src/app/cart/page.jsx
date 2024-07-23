@@ -63,16 +63,16 @@ const Cart = () => {
               {/* SUMMARY START */}
               <div className="flex-[1]">
                 <div className="text-lg font-bold">Summary</div>
-                <div className="p-5 my-5 subtotal-bg rounded-xl">
+                <div className="p-5 my-5 bg-black/5 rounded-xl">
                   <div className="flex justify-between">
-                    <div className="uppercase text-md md:text-lg font-medium txt-mode">
+                    <div className="uppercase text-md md:text-lg font-medium text-black">
                       Subtotal
                     </div>
                     <div className="text-md md:text-lg font-medium ">
-                      &#8377; {subTotal}
+                      &#36; {subTotal}
                     </div>
                   </div>
-                  <div className="text-sm md:text-md py-5 bor-top mt-5">
+                  <div className="text-sm md:text-md py-5 border-t border-black/10 mt-5">
                     The subtotal reflects the total price of your order,
                     including duties and taxes, before any applicable discounts.
                     It does not include delivery costs and international
@@ -82,7 +82,7 @@ const Cart = () => {
 
                 {/* BUTTON START */}
                 <button
-                  className="w-full py-4 rounded-full button-bg text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
+                  className="w-full py-4 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 flex items-center gap-2 justify-center"
                   onClick={handlePayment}
                 >
                   Checkout
@@ -116,7 +116,7 @@ const Cart = () => {
             </span>
             <Link
               href="/"
-              className="py-4 px-8 rounded-full button-bg text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
+              className="py-4 px-8 rounded-full bg-black text-white text-lg font-medium transition-transform active:scale-95 mb-3 hover:opacity-75 mt-8"
             >
               Continue Shopping
             </Link>

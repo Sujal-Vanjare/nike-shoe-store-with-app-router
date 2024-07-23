@@ -31,7 +31,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
   }, []);
 
   return (
-    <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full h-[calc(100vh-50px)] bg-mode bor-top txt-mode">
+    <ul className="flex flex-col md:hidden font-bold absolute top-[50px] left-0 w-full h-[calc(100vh-50px)] bg-white border-t border-black/10 text-black">
       {/* Map through pages and render menu items */}
       {page.map((item) => {
         return (
@@ -55,7 +55,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
 
                 {/* Render sub-menu if showCatMenu is true */}
                 {showCatMenu && (
-                  <ul className="subtotal-bg -mx-5 mt-4 -mb-4">
+                  <ul className="bg-black/5 -mx-5 mt-4 -mb-4">
                     {categories?.map(({ attributes: c, id }) => {
                       return (
                         <Link
@@ -66,7 +66,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
                             setMobileMenu(false); // Close mobile menu on click
                           }}
                         >
-                          <li className="py-4 px-8 bor-top flex justify-between">
+                          <li className="py-4 px-8 border-t border-black/10 flex justify-between">
                             {c.name}
                             {/* Category name */}
 
@@ -84,7 +84,7 @@ const MenuMobile = ({ showCatMenu, setShowCatMenu, setMobileMenu }) => {
             ) : (
               // If the menu item does not have a sub-menu
 
-              <li className="py-4 px-5 bor-bottom">
+              <li className="py-4 px-5 border border-black/10">
                 <Link href={item?.url} onClick={() => setMobileMenu(false)}>
                   {item.name}
                 </Link>
