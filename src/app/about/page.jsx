@@ -10,7 +10,7 @@ export const metadata = {
 export default function Page() {
   return (
     <Wrapper>
-      <div className="container mx-auto p-8">
+      <div className="container mx-auto py-16">
         <h1 className="text-3xl font-bold mb-4">About Nike Shoe Store</h1>
 
         <p className="opacity-70 mb-4">
