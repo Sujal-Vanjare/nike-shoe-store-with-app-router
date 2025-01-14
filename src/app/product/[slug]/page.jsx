@@ -33,7 +33,8 @@ export async function getProducts(slug) {
   return products;
 }
 
-export async function generateMetadata({ params }) {
+export async function generateMetadata(props) {
+  const params = await props.params;
   const product = await getProduct(params.slug);
   const p = product?.data?.[0]?.attributes;
   if (!p) {
@@ -79,7 +80,8 @@ export async function generateMetadata({ params }) {
   };
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   const product = await getProduct(params.slug);
   const products = await getProducts(params.slug);
 

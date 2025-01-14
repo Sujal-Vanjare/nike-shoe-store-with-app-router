@@ -30,7 +30,8 @@ export async function getProducts(slug) {
   return products;
 }
 
-export default async function Page({ params }) {
+export default async function Page(props) {
+  const params = await props.params;
   const category = await getCategory(params.slug);
   const products = await getProducts(params.slug);
 
